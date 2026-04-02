@@ -1,7 +1,0 @@
--c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp
--I.\RTE\_SYD8811
--IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include
--IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include
--IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include
--D__UVISION_VERSION="528" -D_RTE_ -DARMCM0
--o .\output\motor.o --omf_browse .\output\motor.crf --depend .\output\motor.d --feedback ".\Output\Ble_Vendor_Service.fed" "..\UserApp\motor.c"

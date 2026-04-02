@@ -1,421 +1,0 @@
-Dependencies for Project 'SYD8811_BLE_4G_Lock_V01', Target 'SYD8811': (DO NOT MODIFY !)
-F (..\main.c)(0x69A15411)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\Include\timer.h)(0x5E54EA12)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (..\..\..\Include\delay.h)(0x5E54EA11)
-I (..\..\..\Include\spi.h)(0x5E54EA12)
-I (..\..\..\BLE\ota.h)(0x5E54EA11)
-I (..\profile\ABD_ble_lock_service.h)(0x60844076)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-I (..\uart_protocol.h)(0x5EB8D1F6)
-I (..\..\..\Lib\softtimer.h)(0x607D364F)
-I (..\..\..\Include\wdt.h)(0x5E54EA11)
-I (..\UserApp\user_app.h)(0x696DCEDF)
-I (..\UserApp\os_timer.h)(0x60A24D9A)
-I (..\UserApp\led.h)(0x6346DCD8)
-I (..\UserApp\battery.h)(0x5FD5B688)
-I (..\UserApp\my_aes.h)(0x607F93D2)
-I (..\UserApp\e103w08b.h)(0x633BEE00)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\UserApp\Uart_4G.h)(0x69872D67)
-I (..\UserApp\Typedef.h)(0x633BB284)
-I (..\UserApp\user.h)(0x64BB82A3)
-I (..\UserApp\GPS.h)(0x62EBD3F8)
-I (..\UserApp\common.h)(0x607D7868)
-I (..\UserApp\cpwm.h)(0x696E2A62)
-F (..\..\..\Driver\delay.c)(0x5E54EA15)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\delay.o --omf_browse .\output\delay.crf --depend .\output\delay.d)
-I (..\..\..\Include\delay.h)(0x5E54EA11)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-F (..\UserApp\user_app.c)(0x69809C6B)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\user_app.o --omf_browse .\output\user_app.crf --depend .\output\user_app.d)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\..\..\Include\spi.h)(0x5E54EA12)
-I (..\flash.h)(0x5E54EA10)
-I (..\profile\ABD_ble_lock_service.h)(0x60844076)
-I (..\..\..\Lib\softtimer.h)(0x607D364F)
-I (..\..\..\Include\timer.h)(0x5E54EA12)
-I (..\..\..\Include\wdt.h)(0x5E54EA11)
-I (..\..\..\Include\delay.h)(0x5E54EA11)
-I (..\..\..\Include\uart.h)(0x5E6EF0FC)
-I (..\UserApp\user_app.h)(0x696DCEDF)
-I (..\UserApp\os_timer.h)(0x60A24D9A)
-I (..\UserApp\led.h)(0x6346DCD8)
-I (..\UserApp\battery.h)(0x5FD5B688)
-I (..\UserApp\input.h)(0x634A21F4)
-I (..\UserApp\motor.h)(0x5FD70576)
-I (..\UserApp\my_aes.h)(0x607F93D2)
-I (..\UserApp\e103w08b.h)(0x633BEE00)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\UserApp\Uart_4G.h)(0x69872D67)
-I (..\UserApp\Typedef.h)(0x633BB284)
-I (..\UserApp\user.h)(0x64BB82A3)
-I (..\UserApp\GPS.h)(0x62EBD3F8)
-I (..\UserApp\common.h)(0x607D7868)
-I (..\UserApp\cpwm.h)(0x696E2A62)
-F (..\UserApp\battery.c)(0x63459A94)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\battery.o --omf_browse .\output\battery.crf --depend .\output\battery.d)
-I (..\..\..\Include\gpadc.h)(0x609B73D2)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (..\UserApp\battery.h)(0x5FD5B688)
-F (..\UserApp\led.c)(0x6346DCD4)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\led.o --omf_browse .\output\led.crf --depend .\output\led.d)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\UserApp\os_timer.h)(0x60A24D9A)
-I (..\UserApp\led.h)(0x6346DCD8)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\delay.h)(0x5E54EA11)
-F (..\UserApp\input.c)(0x69624CC0)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\input.o --omf_browse .\output\input.crf --depend .\output\input.d)
-I (..\..\..\Include\delay.h)(0x5E54EA11)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\UserApp\user.h)(0x64BB82A3)
-I (..\config.h)(0x696ED616)
-I (..\UserApp\Typedef.h)(0x633BB284)
-I (..\UserApp\GPS.h)(0x62EBD3F8)
-I (..\UserApp\common.h)(0x607D7868)
-I (..\UserApp\e103w08b.h)(0x633BEE00)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\UserApp\Uart_4G.h)(0x69872D67)
-I (..\UserApp\os_timer.h)(0x60A24D9A)
-I (..\UserApp\led.h)(0x6346DCD8)
-I (..\UserApp\battery.h)(0x5FD5B688)
-F (..\UserApp\motor.c)(0x64C640F9)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\motor.o --omf_browse .\output\motor.crf --depend .\output\motor.d)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\UserApp\motor.h)(0x5FD70576)
-I (..\config.h)(0x696ED616)
-I (..\UserApp\user.h)(0x64BB82A3)
-I (..\UserApp\Typedef.h)(0x633BB284)
-I (..\UserApp\GPS.h)(0x62EBD3F8)
-I (..\UserApp\common.h)(0x607D7868)
-F (..\UserApp\os_timer.c)(0x60A269F4)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\os_timer.o --omf_browse .\output\os_timer.crf --depend .\output\os_timer.d)
-I (..\UserApp\os_timer.h)(0x60A24D9A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-F (..\UserApp\my_aes.c)(0x6087CE0A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\my_aes.o --omf_browse .\output\my_aes.crf --depend .\output\my_aes.d)
-I (..\UserApp\my_aes.h)(0x607F93D2)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-F (..\UserApp\Uart_4G.c)(0x6987E9B1)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\uart_4g.o --omf_browse .\output\uart_4g.crf --depend .\output\uart_4g.d)
-I (..\UserApp\Uart_4G.h)(0x69872D67)
-I (..\UserApp\Typedef.h)(0x633BB284)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (..\UserApp\user.h)(0x64BB82A3)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\UserApp\GPS.h)(0x62EBD3F8)
-I (..\UserApp\common.h)(0x607D7868)
-I (..\..\..\Include\uart.h)(0x5E6EF0FC)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (..\UserApp\e103w08b.h)(0x633BEE00)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\UserApp\user_app.h)(0x696DCEDF)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
-I (..\UserApp\UART_T.h)(0x633BEF04)
-I (..\UserApp\os_timer.h)(0x60A24D9A)
-I (..\UserApp\motor.h)(0x5FD70576)
-I (..\UserApp\input.h)(0x634A21F4)
-F (..\UserApp\e103w08b.c)(0x69809B63)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\e103w08b.o --omf_browse .\output\e103w08b.crf --depend .\output\e103w08b.d)
-I (..\..\..\Include\uart.h)(0x5E6EF0FC)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\UserApp\e103w08b.h)(0x633BEE00)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\UserApp\Uart_4G.h)(0x69872D67)
-I (..\UserApp\Typedef.h)(0x633BB284)
-I (..\UserApp\user.h)(0x64BB82A3)
-I (..\config.h)(0x696ED616)
-I (..\UserApp\GPS.h)(0x62EBD3F8)
-I (..\UserApp\common.h)(0x607D7868)
-I (..\UserApp\UART_T.h)(0x633BEF04)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (..\UserApp\cpwm.h)(0x696E2A62)
-F (..\UserApp\UART_T.c)(0x633BE0E2)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\uart_t.o --omf_browse .\output\uart_t.crf --depend .\output\uart_t.d)
-I (..\UserApp\UART_T.h)(0x633BEF04)
-I (..\UserApp\user.h)(0x64BB82A3)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\UserApp\Typedef.h)(0x633BB284)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\UserApp\GPS.h)(0x62EBD3F8)
-I (..\UserApp\common.h)(0x607D7868)
-F (..\UserApp\cpwm.c)(0x69809B3A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\cpwm.o --omf_browse .\output\cpwm.crf --depend .\output\cpwm.d)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Include\uart.h)(0x5E6EF0FC)
-I (..\..\..\Include\delay.h)(0x5E54EA11)
-I (..\..\..\Include\debug.h)(0x609A5852)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\..\..\Include\pwm.h)(0x5E54EA11)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (..\UserApp\cpwm.h)(0x696E2A62)
-F (..\..\..\ble\ota.c)(0x61849BB8)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\ota.o --omf_browse .\output\ota.crf --depend .\output\ota.d)
-I (..\..\..\ble\ota.h)(0x5E54EA11)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\Include\debug.h)(0x609A5852)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-I (..\..\..\Include\delay.h)(0x5E54EA11)
-I (..\..\..\Lib\softtimer.h)(0x607D364F)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-F (..\..\..\Driver\gpio.c)(0x60ACC02D)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\gpio.o --omf_browse .\output\gpio.crf --depend .\output\gpio.d)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-F (..\timer_handler.c)(0x6080D948)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\timer_handler.o --omf_browse .\output\timer_handler.crf --depend .\output\timer_handler.d)
-I (..\..\..\Lib\calender.h)(0x5E54EA12)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (..\..\..\Lib\softtimer.h)(0x607D364F)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-F (..\rtc_handler.c)(0x6980A58C)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\rtc_handler.o --omf_browse .\output\rtc_handler.crf --depend .\output\rtc_handler.d)
-I (..\..\..\Lib\softtimer.h)(0x607D364F)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-F (..\..\..\Driver\gpadc.c)(0x617237B6)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\gpadc.o --omf_browse .\output\gpadc.crf --depend .\output\gpadc.d)
-I (..\..\..\Include\gpadc.h)(0x609B73D2)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-F (..\..\..\Driver\wdt.c)(0x696B6474)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\wdt.o --omf_browse .\output\wdt.crf --depend .\output\wdt.d)
-I (..\..\..\Include\wdt.h)(0x5E54EA11)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-F (..\..\..\Driver\pwm.c)(0x6125F92A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\pwm.o --omf_browse .\output\pwm.crf --depend .\output\pwm.d)
-I (..\..\..\Include\pwm.h)(0x5E54EA11)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Include\gpio.h)(0x5E54EA11)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\Include\debug.h)(0x609A5852)
-I (..\config.h)(0x696ED616)
-I (..\..\..\RTT\DebugLog.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\RTT\SEGGER_RTT_Conf.h)(0x5E54EA15)
-F (..\..\..\Lib\syd8811_ble_lib.lib)(0x5F17F602)()
-F (..\..\..\Lib\Syd8811_softtimer_lib.lib)(0x5E54EA12)()
-F (..\..\..\Rtt\SEGGER_RTT.c)(0x5E54EA15)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\segger_rtt.o --omf_browse .\output\segger_rtt.crf --depend .\output\segger_rtt.d)
-I (..\..\..\Rtt\DebugLog.h)(0x5E54EA15)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\Rtt\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\Rtt\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-F (..\..\..\Rtt\SEGGER_RTT_printf.c)(0x5E54EA15)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\segger_rtt_printf.o --omf_browse .\output\segger_rtt_printf.crf --depend .\output\segger_rtt_printf.d)
-I (..\..\..\Rtt\DebugLog.h)(0x5E54EA15)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\Rtt\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\Rtt\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
-I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5CEB79E4)
-F (..\..\..\Rtt\SEGGER_RTT_Syscalls_KEIL.c)(0x5E54EA15)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\segger_rtt_syscalls_keil.o --omf_browse .\output\segger_rtt_syscalls_keil.crf --depend .\output\segger_rtt_syscalls_keil.d)
-I (..\..\..\Rtt\DebugLog.h)(0x5E54EA15)
-I (..\config.h)(0x696ED616)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
-I (..\..\..\Lib\lib.h)(0x633C5535)
-I (..\..\..\Rtt\SEGGER_RTT.h)(0x5E54EA15)
-I (..\..\..\Rtt\SEGGER_RTT_Conf.h)(0x5E54EA15)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
-I (C:\Keil_v5\ARM\ARMCC\include\rt_sys.h)(0x5CEB79E0)
-I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x5CEB79D6)
-I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
-F (RTE\Device\ARMCM0\startup_ARMCM0.s)(0x5EB8D1F8)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include--pd "__UVISION_VERSION SETA 528" --pd "_RTE_ SETA 1" --pd "ARMCM0 SETA 1"--list .\startup_armcm0.lst --xref -o .\output\startup_armcm0.o --depend .\output\startup_armcm0.d)
-F (RTE\Device\ARMCM0\system_ARMCM0.c)(0x5EB8D1F8)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork -I ..\..\..\Include -I ..\..\..\BLE -I ..\..\..\Lib -I ..\profile -I ..\ -I ..\..\..\RTT -I ..\UserApp-I.\RTE\_SYD8811-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DARMCM0-o .\output\system_armcm0.o --omf_browse .\output\system_armcm0.crf --depend .\output\system_armcm0.d)
-I (..\..\..\Include\ARMCM0.h)(0x5EEEF4BD)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x626F4ADE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F4ADE)
-I (C:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x626F4ADE)
