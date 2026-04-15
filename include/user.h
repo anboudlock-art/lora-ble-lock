@@ -1,9 +1,9 @@
 /********************************************************************************
-** 脦脛录镁脙没鲁脝: Common.h
-** 脙猫    脢枚: 脥篓脫脙潞炉脢媒鲁脤脨貌脥路脦脛录镁
-** 麓麓陆篓脳梅脮脽: 
-** 陆篓脕垄脠脮脝脷: 
-** 掳忙卤戮卤盲赂眉: 
+** 文件名称: Common.h
+** 描    述: 通用函数程序头文件
+** 创建作者: 
+** 建立日期: 
+** 版本变更: 
 
 ********************************************************************************/
 #include "config.h"
@@ -11,7 +11,7 @@
 #ifndef __USER1_H
 #define __USER1_H
 
-/**********************************脥路脦脛录镁掳眉潞卢***********************************/
+/**********************************头文件包含***********************************/
 #include "Typedef.h"
 #include "gpio.h"
 #include "config.h"
@@ -19,19 +19,19 @@
 #define flg_200ms		 flag_00.bitn.bit0    //
 #define flg_poweron flag_00.bitn.bit1    
 #define flg_ledflash flag_00.bitn.bit2
-#define flg_clr_bc95        flag_00.bitn.bit5//脟氓BC95 buf脟酶
+#define flg_clr_bc95        flag_00.bitn.bit5//清BC95 buf区
 #define flg_10ms            flag_00.bitn.bit6
 #define flg_flashwrite      flag_00.bitn.bit7
 
 	
 
 
-//_user.flag  脪脭脧脗
+//_user.flag  以下
 //_user.flag00
-#define	flg_do_closelockcmd			_user.flag00.bitn.bit0	//路垄鹿脴脣酶脰赂脕卯
-#define	flg_do_closelockOK			_user.flag00.bitn.bit1	//鹿脴脣酶脰赂脕卯OK
+#define	flg_do_closelockcmd			_user.flag00.bitn.bit0	//发关锁指令
+#define	flg_do_closelockOK			_user.flag00.bitn.bit1	//关锁指令OK
 #define flg_err_cutalarm			_user.flag00.bitn.bit2
-#define flg_needred3				_user.flag00.bitn.bit3	//脨猫脡脕3麓脦
+#define flg_needred3				_user.flag00.bitn.bit3	//需闪3次
 #define flg_cutup					_user.flag00.bitn.bit4
 
 #define	flg_eepOK					_user.flag00.bitn.bit11
@@ -43,7 +43,7 @@
 
 
 //_user.flag01
-// #define flg_cmd_4glocation		_user.flag01.bitn.bit0		//4G禄霉脮戮露篓脦禄	
+// #define flg_cmd_4glocation		_user.flag01.bitn.bit0		//4G基站定位	
 #define flg_resetsystem			_user.flag01.bitn.bit1
 #define	flg_first_logon 		_user.flag01.bitn.bit2
 #define flg_CIPSEND			_user.flag01.bitn.bit3	
@@ -54,7 +54,7 @@
 #define flg_setipOK			_user.flag01.bitn.bit6	
 #define flg_onlysendonce	_user.flag01.bitn.bit7
 
-//脪貌脛拢脢陆脫脨脟掳碌录脗毛拢卢鹿脢陆芦4G脧脿鹿脴脙眉脕卯碌楼露脌露篓脪氓卤盲脕驴脤氓
+//因模式有前导码，故将4G相关命令单独定义变量体
 //_user.flag_cmd
 #define	flg_cmd_logon				_user.flag_cmd.bitn.bit0
 #define flg_cmd_reportsleepset 		_user.flag_cmd.bitn.bit1
@@ -64,15 +64,15 @@
 // #define flg_cmd_heat				_user.flag_cmd.bitn.bit5
 #define flg_cmd_gpsdata				_user.flag_cmd.bitn.bit6
 #define flg_cmd_reportlockstatus	_user.flag_cmd.bitn.bit7
-#define flg_cmd_reportseal			_user.flag_cmd.bitn.bit8//脢漏路芒
+#define flg_cmd_reportseal			_user.flag_cmd.bitn.bit8//施封
 #define flg_cmd_reportsenddelay 	_user.flag_cmd.bitn.bit9
 #define flg_cmd_sendseal			_user.flag_cmd.bitn.bit10
 
 
 
 
-#define D_wakeuptime 	net4G.sleep_delayset * 60		//5*60		//脨脻脙脽15路脰脰脫
-/*********************************脢媒戮脻脌脿脨脥露篓脪氓**********************************/
+#define D_wakeuptime 	net4G.sleep_delayset * 60		//5*60		//休眠15分钟
+/*********************************数据类型定义**********************************/
 typedef union
 {
 	u8		data8[8];	
@@ -111,8 +111,8 @@ typedef union {
 
 typedef enum
 {
-	status_close =0,		//脗盲脣酶
-	status_open,			//驴陋脣酶
+	status_close =0,		//落锁
+	status_open,			//开锁
 }lock_status_t;
 
 typedef enum{
@@ -134,19 +134,19 @@ typedef struct{
 	
 	
   struct gap_ble_addr ble_ID;
-  char mac_ascii[17];//赂帽脢陆脦陋00:27:15:64:63:ed
+  char mac_ascii[17];//格式为00:27:15:64:63:ed
 
  uint8_t bc95_reset_time;
 
- u16 powerondelay1s;//脡脧碌莽脩脫脢卤1脙毛
+ u16 powerondelay1s;//上电延时1秒
 
  param_t param;
 
  u32 timestamp;
- type32_t lock_SN;//8脦禄脣酶潞脜脫脙u32
+ type32_t lock_SN;//8位锁号用u32
  u16 lock_ID[2];
- lock_id_t lock_sn8array;//脣酶sn
- lock_status_t lock_status;//脣酶脳麓脤卢
+ lock_id_t lock_sn8array;//锁sn
+ lock_status_t lock_status;//锁状态
  u8 bat_volt;
  u16 wakeuptime;
  uint16_bit_t flag00;
@@ -155,7 +155,7 @@ typedef struct{
 
  u8 key_7cnt;
  u8 key_7delay;
- u16 closelock_2s;//脡脧脣酶潞贸2s脛脷录矛虏芒碌陆脣酶鲁脡鹿娄虏脜脛脺卤篓戮炉
+ u16 closelock_2s;//上锁后2s内检测到锁成功才能报警
 }user_object_t;
 
 
@@ -168,7 +168,7 @@ extern eep_save_t eep_save;
 
 extern const char hex2ascii_tab[];
 extern unsigned char SignatureBuf[33];
-/***********************************潞炉脢媒脡霉脙梅************************************/
+/***********************************函数声明************************************/
 
 #endif
 
