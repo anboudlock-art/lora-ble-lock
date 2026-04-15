@@ -1180,35 +1180,28 @@ void user_task(void)
 	if(TIMER_EVENT & EVT_START_DEVICE)
 	{	
 
-		if(flg_4g_EN==0){
-			if(!ADV_Flag)
-			{
-				rf_restart();	//��ʼ�㲥
-				
-				#if defined(_DEBUG_) || defined(_SYD_RTT_DEBUG_)
-				dbg_printf("\r\nStartAdv\r\n");
-				#endif
-				
-				ADV_Flag = 1;	//���
-			}
+		/* LoRa and BLE work simultaneously - always start advertising */
+		if(!ADV_Flag)
+		{
+			rf_restart();	//��ʼ�㲥
+
+			#if defined(_DEBUG_) || defined(_SYD_RTT_DEBUG_)
+			dbg_printf("\r\nStartAdv\r\n");
+			#endif
+
+			ADV_Flag = 1;	//���
 		}
-		else{//4G�¹������㲥
-			rf_stop();
-			ADV_Flag= 0;
+
+		// Sleep timer
+		if(flg_cutup==1){
+			flg_cutup = 0;
+			OS_timer_start(EVT_ENTER_SLEEP, 400, false);//4��
 		}
-		
-		// 61S�� ����������ӣ����������
-		if(flg_4g_EN==0){
-			if(flg_cutup==1){
-				flg_cutup = 0;
-				OS_timer_start(EVT_ENTER_SLEEP, 400, false);//4��
-			}
-			else{
-				OS_timer_start(EVT_ENTER_SLEEP, 2000, false);
-			}
+		else if(flg_4g_EN){
+			OS_timer_start(EVT_ENTER_SLEEP, 6000, false);//60s LoRa active
 		}
 		else{
-			OS_timer_start(EVT_ENTER_SLEEP, 6000*2, false);
+			OS_timer_start(EVT_ENTER_SLEEP, 2000, false);//20s BLE only
 		}
 		TIMER_EVENT ^= EVT_START_DEVICE;
 	}
