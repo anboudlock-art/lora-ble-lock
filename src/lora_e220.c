@@ -406,3 +406,12 @@ void UART1_IRQHandler(void)
         lora_uart_callback();
     }
 }
+
+/***************************************************************************
+ * Compatibility wrappers for old 4G/e103w08b function names
+ * input.c and other files still call these old names
+ ***************************************************************************/
+void e103w08b_init(void)
+{
+    lora_e220_init();
+}
