@@ -153,11 +153,9 @@ void lora_set_mode(uint8_t mode)
     DelayMS(5);  /* Wait for mode switch */
 }
 
-#ifdef LORA_E220_AUTO_CONFIG
 /***************************************************************************
- * Configure E220 registers (address, channel, air rate)
+ * Configure E220 registers (address, channel, air rate, FIXED mode)
  * Must be called in sleep mode (M0=1, M1=1)
- * Config: ADDR=0x0000, CH=LORA_DEFAULT_CH, 9600/8N1/2.4k air rate
  ***************************************************************************/
 static void lora_e220_config(void)
 {
@@ -180,8 +178,8 @@ static void lora_e220_config(void)
     cfg_cmd[4] = LORA_DEFAULT_ADDR_L; /* ADDL = 0x00 */
     cfg_cmd[5] = 0x62;                /* REG0: 9600baud/8N1/2.4k air */
     cfg_cmd[6] = 0x00;                /* REG1: 200B subpacket/22dBm */
-    cfg_cmd[7] = LORA_DEFAULT_CH;     /* REG2: Channel */
-    cfg_cmd[8] = 0x00;                /* REG3: transparent/no relay/no LBT */
+    cfg_cmd[7] = LORA_DEFAULT_CH;     /* REG2: Channel 4 */
+    cfg_cmd[8] = 0x40;                /* REG3: FIXED mode(bit6=1)/no relay/no LBT */
 
     lora_uart_write_buff(cfg_cmd, 9);
 
@@ -190,14 +188,13 @@ static void lora_e220_config(void)
     timeout = 500;
     while(!LORA_AUX_READ() && timeout > 0) { DelayMS(1); timeout--; }
 
-    dbg_printf("E220 config: ADDR=%02x%02x CH=%02x\r\n",
+    dbg_printf("E220 cfg: ADDR=%02x%02x CH=%02x FIXED\r\n",
                cfg_cmd[3], cfg_cmd[4], cfg_cmd[7]);
 
     /* Back to normal mode */
     lora_set_mode(LORA_MODE_NORMAL);
     DelayMS(50);
 }
-#endif
 
 /***************************************************************************
  * Initialize E220 LoRa module
@@ -223,12 +220,10 @@ void lora_e220_init(void)
     /* Initialize UART first (needed for config mode if used) */
     lora_uart_init();
 
-#ifdef LORA_E220_AUTO_CONFIG
-    /* BUG-4: Auto-configure E220 address/channel/mode */
+    /* Configure E220 address/channel/FIXED mode */
     lora_e220_config();
-#endif
 
-    /* Set to normal mode (transparent transmission) */
+    /* Set to normal mode (data transmission) */
     lora_set_mode(LORA_MODE_NORMAL);
 
     /* Wait for AUX high (module ready) */
