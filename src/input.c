@@ -15,7 +15,8 @@ History:
 #include "gpio.h"
 #include "user.h"
 #include "config.h"
-#include "lora_e220.h"
+#include "e103w08b.h"
+#include "Uart_4G.h"
 #include "os_timer.h"
 #include "led.h"
 #include "battery.h"
@@ -47,32 +48,36 @@ void DoorStateInit(void)
 uint8_t GetInputStopF(void)
 {
 	uint8_t state=0;
-	
-  if(GPIO_Pin_Read(U32BIT(STOP_KEY1))) 
+	/* LoRa uses GPIO_12(STOP_KEY1) as M1 pin - skip switch check */
+	if(flg_4g_EN) return 1;
+
+  if(GPIO_Pin_Read(U32BIT(STOP_KEY1)))
 	{
 		state = 1;
-	}		
-	else 
+	}
+	else
 	{
 		state = 0;
 	}
-		
+
   return state;
 }
 
 uint8_t GetInputStopR(void)
 {
 	uint8_t state=0;
-    
-	if(GPIO_Pin_Read(U32BIT(STOP_KEY2))) 
+	/* LoRa uses GPIO_14(STOP_KEY2) as M0 pin - skip switch check */
+	if(flg_4g_EN) return 1;
+
+	if(GPIO_Pin_Read(U32BIT(STOP_KEY2)))
 	{
 		state = 1;
-	}		
-	else 
+	}
+	else
 	{
 		state = 0;
 	}
-	
+
   return state;
 }
 
@@ -182,12 +187,12 @@ void hall_check(void)
 					flg_err_cutalarm = 1;
 					flg_cmd_gpsdata = 1;
 					report_cnt = 0;
-						if(flg_4g_EN==0){
-							RedLed_Config(RED_LED_OFF);
-							lora_e220_init();
-							UartEn(true);
+						if(flg_4g_EN==0){//ǿ�ƿ�4G
+							RedLed_Config(RED_LED_OFF);					
+							e103w08b_init();
+							UartEn(true);	
 							OS_timer_stop(EVT_ENTER_SLEEP);
-							OS_timer_start( EVT_START_DEVICE, 2, false );
+							OS_timer_start( EVT_START_DEVICE, 2, false );		//�����豸�������㲥 ��ҪΪ��ʱ60�������
 						}				  
 				}
 			}		
