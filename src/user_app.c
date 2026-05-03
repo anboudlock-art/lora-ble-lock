@@ -104,6 +104,20 @@ uint8_t LockOpen_Report = 0;//0 �յ���APP�ǹ���  1 �յ���
 
 u8 timerSendFlag=0;
 
+// IMEI BCD storage (8 bytes, BCD encoded from 15-digit IMEI string)
+// Default 0xFD = no IMEI (BLE-only / LoRa device)
+// 4G module code should call set_imei_from_string() after AT+CGSN response
+uint8_t imei_bcd[8] = {0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD};
+
+void set_imei_from_string(const char imei[15])
+{
+	int i;
+	for (i = 0; i < 7; i++) {
+		imei_bcd[i] = ((imei[2*i] - '0') << 4) | (imei[2*i + 1] - '0');
+	}
+	imei_bcd[7] = ((imei[14] - '0') << 4) | 0x0F;
+}
+
 extern void rf_stop(void);
 extern void rf_restart(void);
 
@@ -1758,8 +1772,18 @@ uint8_t gatt_read_AppCB(uint8_t *p_data, uint8_t pdata_len)
 						databuf[10] = _user.lock_sn8array.data8[7];
 
 						databuf[11] = computer_sum(databuf+1,10);
-						datalen = 12; 
-						user_encrypt_notify(aes_key2, databuf, datalen);		//���ܺ���
+						datalen = 12;
+						user_encrypt_notify(aes_key2, databuf, datalen);
+					}
+					else if(p_value[2] == 0x60){// 0x60 GET_IMEI (v1.4)
+						databuf[0] = 0xAA;
+						cmd_id ++;
+						databuf[1] = cmd_id;
+						databuf[2] = 0x60;
+						memcpy(databuf+3, imei_bcd, 8);	// IMEI BCD 8 bytes
+						databuf[11] = computer_sum(databuf+1,10);
+						datalen = 12;
+						user_encrypt_notify(aes_key2, databuf, datalen);
 					}
 				}
 			}

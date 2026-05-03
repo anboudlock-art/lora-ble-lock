@@ -3,13 +3,13 @@
 
 #include <stdint.h>
 
-//»½ÐÑÔ´
-#define  NONE  				0				//ÎÞ»½ÐÑÔ´
-#define  USER_BUTTON  0x01		//°´¼ü»½ÐÑ
-#define  LOCK_CHECK  	0x02		//×Ô¶¯ÉÏËø»½ÐÑ
-#define  RTC_ALARM  	0x04		//RTC»½ÐÑ
-#define  RTC_4Greport  	0x08		//24Ð¡Ê±4GÉÏ±¨
-#define  lock_cut  	0x10		//¼ô¶Ï
+//ï¿½ï¿½ï¿½ï¿½Ô´
+#define  NONE  				0				//ï¿½Þ»ï¿½ï¿½ï¿½Ô´
+#define  USER_BUTTON  0x01		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define  LOCK_CHECK  	0x02		//ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define  RTC_ALARM  	0x04		//RTCï¿½ï¿½ï¿½ï¿½
+#define  RTC_4Greport  	0x08		//24Ð¡Ê±4Gï¿½Ï±ï¿½
+#define  lock_cut  	0x10		//ï¿½ï¿½ï¿½ï¿½
 //ÏµÍ³×´Ì¬
 #define	 SLEEP			 	0
 //#define  ENTERSLEEP   0x80
@@ -65,27 +65,27 @@
 #define VENDORV2_WRITE_DESCRIPTION_LEN	(15)
 #define VENDORV2_WRITE_DESCRIPTION_REQ	("Vendor V2 Write")
 
-//ÏµÍ³×´Ì¬±êÖ¾
+//ÏµÍ³×´Ì¬ï¿½ï¿½Ö¾
 extern uint8_t Systerm_States;
 
 extern uint8_t EnterSleepFlag;
 
-//notify´ò¿ª±êÖ¾
-extern uint8_t start_tx;	//ÔÊÐínotify±êÖ¾
+//notifyï¿½ò¿ª±ï¿½Ö¾
+extern uint8_t start_tx;	//ï¿½ï¿½ï¿½ï¿½notifyï¿½ï¿½Ö¾
 //extern uint8_t gatt_Recive_flag;
 extern uint8_t gatt_buff[20];
 
-// Á¬½Óid
-extern uint8_t connect_flag;	//Á¬½Ó³É¹¦±êÖ¾
+// ï¿½ï¿½ï¿½ï¿½id
+extern uint8_t connect_flag;	//ï¿½ï¿½ï¿½Ó³É¹ï¿½ï¿½ï¿½Ö¾
 
-extern uint8_t WakeupSource;	//»½ÐÑÔ´±êÖ¾
+extern uint8_t WakeupSource;	//ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Ö¾
 
 typedef struct
 {
 	uint8_t default_id;
-  uint8_t password[3];    //Á¬½ÓÃÜÂë
-  uint8_t lockstate;   		//¹Ø»úÊ±ËøµÄ×´Ì¬(¿ª/¹Ø)
-	uint8_t discharge_flag;//µç³Ø·Åµç¼ÆÊý
+  uint8_t password[3];    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  uint8_t lockstate;   		//ï¿½Ø»ï¿½Ê±ï¿½ï¿½ï¿½ï¿½×´Ì¬(ï¿½ï¿½/ï¿½ï¿½)
+	uint8_t discharge_flag;//ï¿½ï¿½Ø·Åµï¿½ï¿½ï¿½ï¿½
 } SystemParameter_Def;
 
 //extern SystemParameter_Def SystemParameter;
@@ -118,6 +118,10 @@ extern void gap_disconnect_evnet(void);
 extern void Enable_Timer2_2ms(void);
 
 extern void FeedDog(void);//260101
+
+// GET_IMEI (v1.4 protocol 0x60)
+extern uint8_t imei_bcd[8];
+extern void set_imei_from_string(const char imei[15]);
 
 #endif  // _USER_TASK_H
 
