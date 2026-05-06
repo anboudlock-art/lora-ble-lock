@@ -3,14 +3,14 @@
 
 #include <stdint.h>
 
-//唤醒源
-#define  NONE  				0				//无唤醒源
-#define  USER_BUTTON  0x01		//按键唤醒
-#define  LOCK_CHECK  	0x02		//自动上锁唤醒
-#define  RTC_ALARM  	0x04		//RTC唤醒
-#define  RTC_4Greport  	0x08		//24小时4G上报
-#define  lock_cut  	0x10		//剪断
-//系统状态
+//����Դ
+#define  NONE  				0				//�޻���Դ
+#define  USER_BUTTON  0x01		//��������
+#define  LOCK_CHECK  	0x02		//�Զ���������
+#define  RTC_ALARM  	0x04		//RTC����
+#define  RTC_4Greport  	0x08		//24Сʱ4G�ϱ�
+#define  lock_cut  	0x10		//����
+//ϵͳ״̬
 #define	 SLEEP			 	0
 //#define  ENTERSLEEP   0x80
 #define  STARTUP   		0x40
@@ -65,42 +65,27 @@
 #define VENDORV2_WRITE_DESCRIPTION_LEN	(15)
 #define VENDORV2_WRITE_DESCRIPTION_REQ	("Vendor V2 Write")
 
-//============================================================================
-// 密码存储相关定义 (新增)
-//============================================================================
-#define PASSWORD_FLASH_ADDR    0x0F0000    // 密码存储在SPI Flash的地址 (1MB位置)
-#define PASSWORD_VALID_FLAG    0xAA        // 密码有效标志
-
-// 密码存储结构
-typedef struct {
-    uint8_t valid_flag;        // 有效标志 (0xAA表示有效)
-    uint8_t password[6];       // 6位密码
-    uint8_t checksum;          // 校验和
-} Password_Storage_t;
-
-//============================================================================
-
-//系统状态标志
+//ϵͳ״̬��־
 extern uint8_t Systerm_States;
 
 extern uint8_t EnterSleepFlag;
 
-//notify打开标志
-extern uint8_t start_tx;	//允许notify标志
+//notify�򿪱�־
+extern uint8_t start_tx;	//����notify��־
 //extern uint8_t gatt_Recive_flag;
 extern uint8_t gatt_buff[20];
 
-// 连接id
-extern uint8_t connect_flag;	//连接成功标志
+// ����id
+extern uint8_t connect_flag;	//���ӳɹ���־
 
-extern uint8_t WakeupSource;	//唤醒源标志
+extern uint8_t WakeupSource;	//����Դ��־
 
 typedef struct
 {
 	uint8_t default_id;
-  uint8_t password[3];    //连接密码
-  uint8_t lockstate;   		//关机时锁的状态(开/关)
-	uint8_t discharge_flag;//电池放电计数
+  uint8_t password[3];    //��������
+  uint8_t lockstate;   		//�ػ�ʱ����״̬(��/��)
+	uint8_t discharge_flag;//��طŵ����
 } SystemParameter_Def;
 
 //extern SystemParameter_Def SystemParameter;
@@ -134,22 +119,11 @@ extern void Enable_Timer2_2ms(void);
 
 extern void FeedDog(void);//260101
 
-//============================================================================
-// 密码管理函数声明 (新增)
-//============================================================================
-extern void password_init(void);                              // 密码初始化
-extern int password_verify(const uint8_t *pwd);               // 密码验证
-extern int password_set(const uint8_t *pwd);                  // 设置新密码
-extern int password_set_single_byte(uint8_t pwd_byte);        // 单字节设置密码
-extern void password_reset(void);                             // 重置为默认密码
-//============================================================================
-
-//============================================================================
-// BLE 指令处理函数声明 (从 4G-BLE 版本整合)
-//============================================================================
-extern uint8_t gatt_read_AppCB(uint8_t *p_data, uint8_t pdata_len);  // BLE 指令处理
-extern void GATT_ReadWrite_Process(void);                             // GATT 读写处理
-//============================================================================
+// GET_IMEI (v1.4 protocol 0x60)
+extern uint8_t imei_bcd[8];
+extern void set_imei_from_string(const char imei[15]);
 
 #endif  // _USER_TASK_H
+
+
 

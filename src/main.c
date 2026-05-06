@@ -13,14 +13,7 @@
 #include <string.h>
 #include "uart_protocol.h"
 #include "softtimer.h"
-// #include "wdt.h"  // LoRa版本不使用看门狗
-
-// LoRa版本不使用看门狗，定义空宏
-#ifndef wdt_disable
-#define wdt_disable()  ((void)0)
-#define wdt_enable(x)  ((void)0)
-#define wdt_clear()    ((void)0)
-#endif
+#include "wdt.h"
 
 #include "user_app.h"
 #include "os_timer.h"
@@ -28,21 +21,23 @@
 #include "battery.h"
 
 #include "my_aes.h"
+#include "lora_e220.h"
+// Removed: #include "Uart_4G.h" // replaced by lora_e220.h
 #include "user.h"
 #include "cpwm.h"
-//用户添加
-const u8 sn_tab[] = {2,0,1,3,6,0,7,2};//测试用
+//�û�����
+const u8 sn_tab[] = {2,0,1,3,6,0,7,2};//������
 const u8 keycode_tab[] = {0,3,3,7,1,2};
 
 //XIAO YUE
 //const u8 ip_tab[] = {47,115,56,170};
-//#define port_value  8601//端口
+//#define port_value  8601//�˿�
 
-const u8 ip_tab[] = {159,75,109,42};//hua jing159.75.109.42
-#define port_value  8088//端口
+const u8 ip_tab[] = {120,77,218,138};//120.77.218.138
+#define port_value  8088//�˿�
 
 //const u8 ip_tab[] = {47,101,190,240};//tt
-//#define port_value  2018//端口47.101.190.240
+//#define port_value  2018//�˿�47.101.190.240
 
 #define eep_ver 	04//03//
 
@@ -77,7 +72,7 @@ uint8_t gatt_Recive_flag=0;
 
 //static uint16_t uart_delay_cnt=0;
 
-static struct gap_att_report_handle *g_report;   //GATT属性列表头,传入到协议栈中进行初始化
+static struct gap_att_report_handle *g_report;   //GATT�����б�ͷ,���뵽Э��ջ�н��г�ʼ��
 
 const uint8_t HexTab[16]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 
@@ -88,9 +83,9 @@ uint8_t ADV_DATA[] = {
 	
 						0x09,		
 						0xFF,		//Type: Manufacturer Specific Data
-						0x64,		//电量
-						0x00,		//锁状态
-						0x64,		//mac地址
+						0x64,		//����
+						0x00,		//��״̬
+						0x64,		//mac��ַ
 						0x69,
 						0x4E,
 						0x86,
@@ -105,19 +100,19 @@ uint8_t ADV_DATA[] = {
 					  	};
 
 uint8_t SCAN_DATA[]={
-						// complete name 设备名字
+						// complete name �豸����
 						0x12,   // length of this data
 						0x09,		// GAP_ADVTYPE_LOCAL_NAME_COMPLETE
 						'L','O','C','K','_','0','0','0','0','0','0','0','0','0','0','0','0',
 
-						// Tx power level 发射功率
+						// Tx power level ���书��
 						0x02,   // length of this data
 						0x0A,		// GAP_ADVTYPE_POWER_LEVEL
 						0,	    // 0dBm
 						};
 
-//Uart_Rx_Buf_t uart_rx_buf;		//存放从串口收到的数据
-//Uart_Tx_Buf_t uart_tx_buf;		//存放从串口发出的数据
+//Uart_Rx_Buf_t uart_rx_buf;		//��ŴӴ����յ�������
+//Uart_Tx_Buf_t uart_tx_buf;		//��ŴӴ��ڷ���������
 
 
 //=================260101+====================//
@@ -135,7 +130,7 @@ void TimerNSEvent(void)
   netUpLoadSendCnt+=6;
 	if(netUpLoadSendCnt>86400)
 	{
-		WakeupSource |= RTC_4Greport;
+		WakeupSource |= RTC_4Greport; // reused for LoRa periodic report
 		netUpLoadSendCnt=0;
 	}
 
@@ -168,7 +163,7 @@ void gpio_init(void)
 			case GPIO_LED_NOTIFYEN:
 			case GPIO_LED_WRITEING:
 			case GPIO_LED_READING:
-				io_output |=U32BIT(i);   //输出低电平
+				io_output |=U32BIT(i);   //����͵�ƽ
 				io_outlow |=U32BIT(i);
 			break;
 			#endif
@@ -179,22 +174,22 @@ void gpio_init(void)
 			break;
 			#endif
 			
-			//用户添加
+			//�û�����
 			case DISCHRG_PIN:
 			case WDG_OUT://260101+
-				io_output |= U32BIT(i);   //设置成输出
-				io_outlow |= U32BIT(i);	 //输出低电平		
+				io_output |= U32BIT(i);   //���ó����
+				io_outlow |= U32BIT(i);	 //����͵�ƽ		
 			break;
 			
 			case STATE_KEY:
 			case STOP_KEY2:		
 			case STOP_KEY1:
 			case GPIO_USER_KEY:
-				io_input |= U32BIT(i);   //设置成输入	
-				io_pull |= U32BIT(i);		//使能内部上拉
+				io_input |= U32BIT(i);   //���ó�����	
+				io_pull |= U32BIT(i);		//ʹ���ڲ�����
 			break;
 			case lock_hall:
-				io_input |= U32BIT(i);   //设置成输入	
+				io_input |= U32BIT(i);   //���ó�����	
 			break;
 			
 			case LED_BLUE:
@@ -202,13 +197,13 @@ void gpio_init(void)
 			case LED_green:		
 			case Motor_INB:
 			case Motor_INA:
-				io_output |= U32BIT(i);   //输出低电平
-				io_outlow |= U32BIT(i);	 //输出低电平
+				io_output |= U32BIT(i);   //����͵�ƽ
+				io_outlow |= U32BIT(i);	 //����͵�ƽ
 			break;					
 
 			case PWR_4G:	
-				io_output |= U32BIT(i);   //输出
-				io_outlow |= U32BIT(i);	 //输出低电平
+				io_output |= U32BIT(i);   //���
+				io_outlow |= U32BIT(i);	 //����͵�ƽ
 			break;
 
 			case SPCIO:
@@ -218,18 +213,18 @@ void gpio_init(void)
 			case GPIO_21:
 			break;
 			
-			default:   //默认上拉输入
+			default:   //Ĭ����������
 			io_input |= U32BIT(i);
 			io_pull |= U32BIT(i);
 			break;
 		}
  	}
   //YCY 260101
-	BBRFWrite(0x7f, 0x00);    //设置GPIO21为IO口模式，而不是复位管脚
+	BBRFWrite(0x7f, 0x00);    //����GPIO21ΪIO��ģʽ�������Ǹ�λ�ܽ�
 	BBRFWrite(0x1a, 0x40);
 	
-	PIN_Set_GPIO(io_output, PIN_SEL_GPIO);	//功能GPIO
-	//取消内部上拉
+	PIN_Set_GPIO(io_output, PIN_SEL_GPIO);	//����GPIO
+	//ȡ���ڲ�����
 	PIN_Pullup_Disable(T_QFN_48, io_output|io_input);	
 	//DEFAULT OUT
 	GPIO_Set_Output(io_output); 
@@ -270,7 +265,7 @@ void setup_adv_data(void)
 //	dev_addr.addr[5] = 0xAA;
 //	SetDevAddr(&dev_addr);
 	
-//	dev_addr.type = PUBLIC_ADDRESS_TYPE;	//已授权的mac地址
+//	dev_addr.type = PUBLIC_ADDRESS_TYPE;	//����Ȩ��mac��ַ
 //	dev_addr.addr[5]=0x64;
 //	dev_addr.addr[4]=0x69;
 //	dev_addr.addr[3]=0x4E;
@@ -281,7 +276,7 @@ void setup_adv_data(void)
 	
 		/*get bluetooth address */
 	GetDevAddr(&dev_addr);
-	ADV_DATA[5] = GetBatCapacity();		//获取电量
+	ADV_DATA[5] = GetBatCapacity();		//��ȡ����
 	ADV_DATA[7] = dev_addr.addr[5];
 	ADV_DATA[8] = dev_addr.addr[4];
 	ADV_DATA[9] = dev_addr.addr[3];
@@ -307,7 +302,7 @@ void setup_adv_data(void)
 	
 	SetAdvData(ADV_DATA, sizeof(ADV_DATA), SCAN_DATA, sizeof(SCAN_DATA));
 
-	*(uint8_t *)0x40020014 = 0x01;		//设置ADV_PITV为1，降低功耗
+	*(uint8_t *)0x40020014 = 0x01;		//����ADV_PITVΪ1�����͹���
 }
 
 /*
@@ -349,7 +344,7 @@ void Connection_latency(void){
 	if(update_latency_mode>=1){
 		latency_state=0;
 		
-		BLSetConnectionUpdate(2);		//0、1有效，2代表不用
+		BLSetConnectionUpdate(2);		//0��1��Ч��2��������
 		
 		Timer_Evt_Stop(EVT_2S);
 	}
@@ -508,7 +503,7 @@ static void ble_gatt_write(struct gap_att_write_evt evt)
 		#if defined(_DEBUG_) || defined(_SYD_RTT_DEBUG_)
 		DBGHEXDUMP("Recive:\r\n",evt.data,evt.sz);
 		#endif
-		gatt_Recive_flag = 1;		//接收到了数据
+		gatt_Recive_flag = 1;		//���յ�������
 		
 		gatt_buff[0] = (uint8_t)evt.sz;
 		memcpy(&gatt_buff[1], evt.data, evt.sz);
@@ -543,7 +538,7 @@ void ble_evt_callback(struct gap_ble_evt *p_evt)
 	}
 	else if(p_evt->evt_code == GAP_EVT_CONNECTED)
 	{
-		connect_flag=1;								 //连接状态
+		connect_flag=1;								 //����״̬
 		
 		//update_latency=1;
 		
@@ -569,7 +564,7 @@ void ble_evt_callback(struct gap_ble_evt *p_evt)
 		connect_flag=0;
 		
 		Timer_Evt_Stop(EVT_1S_OTA);
-		//setup_adv_data();		//断开连接之后功耗大10uA
+		//setup_adv_data();		//�Ͽ�����֮�󹦺Ĵ�10uA
 		//StartAdv();	
 		
 		gap_disconnect_evnet();
@@ -579,17 +574,17 @@ void ble_evt_callback(struct gap_ble_evt *p_evt)
 		GPIO_Pin_Clear(U32BIT(GPIO_LED_NOTIFYEN));
 		#endif
 		
-		// UartEn(false);	//不允许RF sleep时关闭XO
+		// UartEn(false);	//������RF sleepʱ�ر�XO
 		//DBGPRINTF(("start adv @ disc!\r\n")); 
 	}
 	else if(p_evt->evt_code == GAP_EVT_ATT_HANDLE_CONFIGURE)
 	{
 		if(p_evt->evt.att_handle_config_evt.uuid == BLE_VendorV2)
 		{
-			if(p_evt->evt.att_handle_config_evt.value == BLE_GATT_NOTIFICATION)		//允许notify
+			if(p_evt->evt.att_handle_config_evt.value == BLE_GATT_NOTIFICATION)		//����notify
 			{
 				start_tx = 0x01;
-				//UartEn(true);	//不允许RF sleep时关闭XO，休眠的时候因为32Mhz晶振还在，所以功耗很高
+				//UartEn(true);	//������RF sleepʱ�ر�XO�����ߵ�ʱ����Ϊ32Mhz�����ڣ����Թ��ĺܸ�
 				
 				#ifdef _GPIO_LED_CONTROL_
 				GPIO_Pin_Set(U32BIT(GPIO_LED_NOTIFYEN));
@@ -598,10 +593,10 @@ void ble_evt_callback(struct gap_ble_evt *p_evt)
 				DBGPRINTF(("UART notify Enabled!\r\n"));
 				#endif
 			}
-			else		//不允许notify
+			else		//������notify
 			{
 				start_tx = 0x00;
-				//UartEn(false);	//允许硬件自由控制32Mhz晶振，休眠的时候功耗很低
+				//UartEn(false);	//����Ӳ�����ɿ���32Mhz�������ߵ�ʱ�򹦺ĺܵ�
 				
 				#ifdef _GPIO_LED_CONTROL_
 				GPIO_Pin_Clear(U32BIT(GPIO_LED_NOTIFYEN));
@@ -704,16 +699,16 @@ static void ble_init(void)
 
 	setup_adv_data();
 	/*
-	当POWERDOWN_WAKEUP时，
-	PW_CTRL->DSLP_LPO_EN = true，这些中断源才能唤醒并复位运行，
-	如果是false就只有pin能唤醒并复位运行
+	��POWERDOWN_WAKEUPʱ��
+	PW_CTRL->DSLP_LPO_EN = true����Щ�ж�Դ���ܻ��Ѳ���λ���У�
+	�����false��ֻ��pin�ܻ��Ѳ���λ����
 	*/
 //	pw_cfg.wakeup_type = SLEEP_WAKEUP;
 //	pw_cfg.wdt_wakeup_en = (bool)false;
 //	pw_cfg.rtc_wakeup_en = (bool)true;
 //	pw_cfg.timer_wakeup_en = (bool)false;
 //	pw_cfg.gpi_wakeup_en = (bool)true;
-//	pw_cfg.gpi_wakeup_cfg = WAKEUP_PIN;	//中断唤醒pin
+//	pw_cfg.gpi_wakeup_cfg = WAKEUP_PIN;	//�жϻ���pin
 //	WakeupConfig(&pw_cfg);
 }
 
@@ -762,11 +757,11 @@ void  ota_manage(void){
 
 
 /************************************************************************************************************************
-* 函数名称: rf_stop()
-* 功能说明: 停止广播
-* 输 入: 无
-* 输 出: 无
-* 注意事项: 无
+* ��������: rf_stop()
+* ����˵��: ֹͣ�㲥
+* �� ��: ��
+* �� ��: ��
+* ע������: ��
 ************************************************************************************************************************/
 void rf_stop(void)
 {
@@ -775,15 +770,15 @@ void rf_stop(void)
 }
 
 /************************************************************************************************************************
-* 函数名称: rf_restart()
-* 功能说明: 重启广播
-* 输 入: 无
-* 输 出: 无
-* 注意事项: 无
+* ��������: rf_restart()
+* ����˵��: �����㲥
+* �� ��: ��
+* �� ��: ��
+* ע������: ��
 ************************************************************************************************************************/
 void rf_restart(void)
 {
-	if(ble_status==2)	//是停止状态
+	if(ble_status==2)	//��ֹͣ״̬
 	{
 		RFWakeup();
 		DelayMS(100);
@@ -836,17 +831,17 @@ int main(void)
 		u8 i;
 		__disable_irq();	
 
-		ble_init();  //蓝牙初始化，系统主时钟初始化64M,32K时钟初始化为LPO
-		nvic_priority();   //把串口优先级设置到最高
+		ble_init();  //������ʼ����ϵͳ��ʱ�ӳ�ʼ��64M,32Kʱ�ӳ�ʼ��ΪLPO
+		nvic_priority();   //�Ѵ������ȼ����õ����
 		
-		//根据需要重新设置时钟为4M并校准
+		//������Ҫ��������ʱ��Ϊ4M��У׼
 		MCUClockSwitch(SYSTEM_CLOCK_64M_RCOSC);
 		RCOSCCalibration();
 
 		#ifdef USER_32K_CLOCK_RCOSC
 			ClockSwitch(SYSTEM_32K_CLOCK_RCOSC);
 			GAPBBDelayMS(500);
-			LPOCalibration();						//这是内部RC32k晶振的校准函数	经过该函数后定时器能够得到一个比较准确的值
+			LPOCalibration();						//�����ڲ�RC32k�����У׼����	�����ú�����ʱ���ܹ��õ�һ���Ƚ�׼ȷ��ֵ
 		#else
 			ClockSwitch(SYSTEM_32K_CLOCK_XOSC);
 		#endif
@@ -865,21 +860,21 @@ int main(void)
 		SYD_RTC_Init(RTCEVT_NUM, syd_rtc);	
 		RTC_Evt_List();
 		
-		gpio_init();			//低功耗时GPIO的初始统一设置
+		gpio_init();			//�͹���ʱGPIO�ĳ�ʼͳһ����
 		
 		UartEn(false);	//
 		
 		hardware_init();
 		
-		//StartAdv();		//开始广播
+		//StartAdv();		//��ʼ�㲥
 	
 		rf_stop();
 	
 		#if defined(_DEBUG_) || defined(_SYD_RTT_DEBUG_)
-			DBGPRINTF(("4GBLE093_V1001\r\n"));
+			DBGPRINTF(("LORA_BLE_V1101\r\n"));
 		#endif
 			
-			OS_timer_SetEvt(EVT_ENTER_SLEEP);		//进入休眠
+			OS_timer_SetEvt(EVT_ENTER_SLEEP);		//��������
 			
 		#if defined(_DEBUG_) || defined(_SYD_RTT_DEBUG_)
 			dbg_printf("Enter Sleep:0x%08x\r\n" ,TIMER_EVENT);
@@ -888,7 +883,7 @@ int main(void)
 		GetDevAddr(&_user.ble_ID);//get ble SN	
 
 	 //EraseFlashData(0, 1);//DEBUGGG YCY
-		ReadProfileData(0, DATA_SIZE, data_read); //ReadFlashData(0, DATA_SIZE, data_read);	//从机需读主机ID
+		ReadProfileData(0, DATA_SIZE, data_read); //ReadFlashData(0, DATA_SIZE, data_read);	//�ӻ��������ID
 
 		eep_save.savedata.head[0] = data_read[0];
 		eep_save.savedata.head[1] = data_read[1];			
@@ -944,25 +939,25 @@ int main(void)
 
 			eep_save.savedata.head[0] = 0xAA;
 			eep_save.savedata.head[1] = eep_ver;		
-			flg_eepOK = 0;	//读取NG
+			flg_eepOK = 0;	//��ȡNG
 			dbg_printf("flg_eepERR\r\n");
 		}	
 		
-		net4G.senddelaytime_set = 10;//发送间隔10秒
+		// Removed: net4G (using LoRa)//���ͼ��10��
 
- 		wdt_enable(128*10);	//10s	 以内喂狗即可 256/32.768 = 7.8ms		
+ 		wdt_enable(128*10);	//10s	 ����ι������ 256/32.768 = 7.8ms		
 		__enable_irq();
 	
 	while(1)
 	{
-		ble_sched_execute();	//协议栈任务
+		ble_sched_execute();	//Э��ջ����
 		
 		if(TIMER_EVT) 
 		{
 			#ifdef	EVT_1S_OTA
 			if(TIMER_EVT&EVT_1S_OTA)   
 			{
-				ota_manage();     //ota 过程管理 操作屏幕等
+				ota_manage();     //ota ���̹��� ������Ļ��
 				Timer_Evt_Clr(EVT_1S_OTA);
 				#if defined(_DEBUG_) || defined(_SYD_RTT_DEBUG_)
 				DBGPRINTF(("EVT_1S_OTA\r\n"));
@@ -975,7 +970,7 @@ int main(void)
 			#ifdef	EVT_2S
 			if(TIMER_EVT&EVT_2S)
 			{
-				Connection_latency();   //连接参数相关设置
+				Connection_latency();   //���Ӳ����������
 				Timer_Evt_Clr(EVT_2S);
 			}
 			#endif
@@ -1013,11 +1008,11 @@ int main(void)
 			{
 				#ifdef USER_32K_CLOCK_RCOSC
 					 //if(connect_flag && (latency_state==1)) gap_s_connection_latency_mode(0x00);
-					 LPOCalibration();						//这是内部RC32k晶振的校准函数	经过该函数后定时器能够得到一个比较准确的值
+					 LPOCalibration();						//�����ڲ�RC32k�����У׼����	�����ú�����ʱ���ܹ��õ�һ���Ƚ�׼ȷ��ֵ
 					 //if(connect_flag && (latency_state==1)) gap_s_connection_latency_mode(0x01);
 				#endif
 				
- 				wdt_clear();//喂一次狗 185s一次
+ 				wdt_clear();//ιһ�ι� 185sһ��
 				
 				#if defined(_DEBUG_) || defined(_SYD_RTT_DEBUG_)
 				 DBGPRINTF(("RTCEVT_185S\r\n"));
@@ -1030,14 +1025,14 @@ int main(void)
 			if(RTC_EVT&RTCEVT_72h)
 			{
 				RTC_EVT_Clr(RTCEVT_72h);		
-				if(Systerm_States==SLEEP)		//如果系统处于睡眠状态，则开始放电
+				if(Systerm_States==SLEEP)		//���ϵͳ����˯��״̬����ʼ�ŵ�
 				{
 					//Systerm_States |= BATDISCHG;
 					WakeupSource |= RTC_ALARM;
 				}
 				else
 				{
-					RTC_EVT_Stop(RTCEVT_72h);	//其他情况停止事件
+					RTC_EVT_Stop(RTCEVT_72h);	//�������ֹͣ�¼�
 				}
 			}
 			#endif
@@ -1046,9 +1041,9 @@ int main(void)
 			if(RTC_EVT&RTCEVT_24h)
 			{
 				RTC_EVT_Clr(RTCEVT_24h);		
-				if(Systerm_States==SLEEP)		//如果系统处于睡眠状态，则开始放电
+				if(Systerm_States==SLEEP)		//���ϵͳ����˯��״̬����ʼ�ŵ�
 				{
-					WakeupSource |= RTC_4Greport;
+					WakeupSource |= RTC_4Greport; // reused for LoRa periodic report
 				}
 				else
 				{
@@ -1058,7 +1053,7 @@ int main(void)
 			#endif
 
 		}
-		if( ota_state == 1)  ota_manage();     //OTA擦除命令到来，马上擦除
+		if( ota_state == 1)  ota_manage();     //OTA��������������ϲ���
 		
 		if(gatt_Recive_flag)
 		{
@@ -1080,7 +1075,7 @@ int main(void)
 						
 			user_wakeup();
 			user_task();
-			Uart_TX();//
+			// Removed: Uart_TX() (4G)
 
 			if(flg_reset){
 				__disable_irq();
@@ -1099,10 +1094,10 @@ int main(void)
 				//WakupConfig_BeforeSleep();
 				//SPCStop();
 				UartEn(false);
-				GPIO_Pin_Clear(U32BIT(PWR_4G));	
+				lora_e220_deinit(); // Power off LoRa for sleep
 				flg_4g_EN = 0;
 				flg_cutup = 0;
-				SystemSleep();				//系统睡眠
+				SystemSleep();				//ϵͳ˯��
 				delay_ms(10);
 			}
 		}
